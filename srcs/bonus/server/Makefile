@@ -6,14 +6,13 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 22:56:24 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/15 16:38:36 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/23 18:07:09 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=		server
 
 SRCS	=		server_bonus.c
-				
 
 OBJS	=	${SRCS:.c=.o}
 
@@ -26,10 +25,9 @@ CFLAGS	=	-Wall -Wextra -Werror
 RM		=	rm -f
 				
 ${NAME}:	${OBJS}
-			${MAKE} -C ../../libft
 			${MAKE} -C ../../ft_printf
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../ft_printf/libftprintf.a
+			${MAKE} -C ../../libft
+			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a ../../ft_printf/libftprintf.a
 				
 all:		${NAME}
 

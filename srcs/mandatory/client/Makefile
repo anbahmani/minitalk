@@ -6,7 +6,7 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:57:23 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/20 15:59:16 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/23 16:28:11 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ RM		=	rm -f
 ${NAME}:	${OBJS}
 			${MAKE} -C ../../libft
 			${MAKE} -C ../../ft_printf
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../ft_printf/libftprintf.a
+			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a ../../ft_printf/libftprintf.a
 				
 all:		${NAME}
 

@@ -6,7 +6,7 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 22:56:29 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/15 16:38:29 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/23 17:53:51 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME	=		client
 
 SRCS	=		client_bonus.c
 				
-
 OBJS	=	${SRCS:.c=.o}
 
 INCS	=	-I ../../includes
@@ -27,8 +26,8 @@ RM		=	rm -f
 				
 ${NAME}:	${OBJS}
 			${MAKE} -C ../../libft
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../ft_printf/libftprintf.a
+			${MAKE} -C ../../ft_printf
+			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a ../../ft_printf/libftprintf.a
 				
 all:		${NAME}
 

@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:11 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/20 14:42:11 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/23 21:49:01 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	analyze_signal(int signal)
 	{
 		if (!byte)
 		{
-			kill(g_client_pid[0], SIGUSR1);
+			kill(g_client_pid[0], SIGUSR2);
 			free(g_client_pid);
 		}
 		else
@@ -52,6 +52,8 @@ static void	analyze_client_pid(int signal)
 	static unsigned char	byte = 0;
 	static unsigned	int 	bits = 0;
 
+	if (!g_client_pid)
+		g_client_pid = malloc(sizeof(int) * 2);
 	if (signal == SIGUSR1)
 		byte = byte | 1;
 	bits++;

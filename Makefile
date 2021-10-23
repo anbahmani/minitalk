@@ -6,7 +6,7 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 16:07:58 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/14 22:58:19 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/23 18:24:31 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ bonus:
 			${RM} server
 			${MAKE} -C ./srcs/bonus/client
 			${MAKE} -C ./srcs/bonus/server
-			mv ./srcs/bonus/client .
-			mv ./srcs/bonus/server .
+			mv ./srcs/bonus/client/client .
+			mv ./srcs/bonus/server/server .
 
 all:		${NAME}
 

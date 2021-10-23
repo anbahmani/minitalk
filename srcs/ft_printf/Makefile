@@ -14,7 +14,7 @@ NAME	=	libftprintf.a
 
 SRCS	=	ft_printf.c check.c conv_c.c conv_id.c conv_p.c conv_per.c conv_s.c\
 			conv_u.c conv_x.c init.c ft_isdigit.c ft_isprint.c \
-			ft_strlen.c conv_n.c
+			ft_strlen.c conv_n.c use_buffer.c
 
 OBJS	=	${SRCS:.c=.o}
 
