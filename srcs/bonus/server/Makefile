@@ -6,7 +6,7 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 22:56:24 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/23 18:07:09 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/24 20:40:55 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,8 @@ CFLAGS	=	-Wall -Wextra -Werror
 RM		=	rm -f
 				
 ${NAME}:	${OBJS}
-			${MAKE} -C ../../ft_printf
 			${MAKE} -C ../../libft
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a ../../ft_printf/libftprintf.a
+			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a
 				
 all:		${NAME}
 
@@ -37,12 +36,10 @@ all:		${NAME}
 
 clean:
 			${MAKE} -C ../../libft clean
-			${MAKE} -C ../../ft_printf clean
 			${RM} ${OBJS}
 
 fclean:		clean
 			${MAKE} -C ../../libft fclean
-			${MAKE} -C ../../ft_printf fclean
 			${RM} ${NAME}
 
 re:             fclean all

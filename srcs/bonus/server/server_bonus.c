@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:11 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 19:53:57 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:42:06 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	to_msg(unsigned char c)
 	}
 	if (!c)
 	{
-		ft_printf("%s", msg);
+		printf("%s", msg);
 		free(msg);
 		msg = NULL;
 	}
@@ -104,7 +104,7 @@ static void	analyze_client_pid(int signal)
 
 int	main(void)
 {
-	ft_printf("%i\n", getpid());
+	printf("%ld\n", (long int)getpid());
 	initialize_g_var();
 	while (1)
 	{

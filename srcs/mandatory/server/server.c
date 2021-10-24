@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 22:15:49 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 17:39:20 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:42:25 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	to_msg(char c)
 	}
 	if (!c)
 	{
-		ft_printf("%s", msg);
+		printf("%s", msg);
 		free(msg);
 		msg = NULL;
 	}
@@ -71,6 +71,6 @@ static void	wait_signal(void)
 
 int	main(void)
 {
-	ft_printf("%d\n", getpid());
+	printf("%ld\n", (long int)getpid());
 	wait_signal();
 }

@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:08 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 19:51:31 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 20:41:09 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	get_acknowledge(int signal)
 {
 	if (signal == SIGUSR1)
-		ft_printf("Accusé de réception bien reçu !");
+		printf("Accusé de réception bien reçu !");
 }
 
 static void	send_byte(int byte, pid_t pid)

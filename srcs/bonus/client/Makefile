@@ -6,7 +6,7 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 22:56:29 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/23 17:53:51 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/24 20:40:50 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,7 @@ RM		=	rm -f
 				
 ${NAME}:	${OBJS}
 			${MAKE} -C ../../libft
-			${MAKE} -C ../../ft_printf
-			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a ../../ft_printf/libftprintf.a
+			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a
 				
 all:		${NAME}
 
@@ -37,12 +36,10 @@ all:		${NAME}
 
 clean:
 			${MAKE} -C ../../libft clean
-			${MAKE} -C ../../ft_printf clean
 			${RM} ${OBJS}
 
 fclean:		clean
 			${MAKE} -C ../../libft fclean
-			${MAKE} -C ../../ft_printf fclean
 			${RM} ${NAME}
 
 re:             fclean all
