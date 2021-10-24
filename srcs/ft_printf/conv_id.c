@@ -6,15 +6,15 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:01:41 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:51:06 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		digit_count(int nb, int base)
+int	digit_count(int nb, int base)
 {
-	int cpt;
+	int	cpt;
 
 	cpt = 0;
 	if (nb == 0)
@@ -27,7 +27,7 @@ int		digit_count(int nb, int base)
 	return (cpt);
 }
 
-int		number_zero(t_pars *pars, int len, int neg)
+int	number_zero(t_pars *pars, int len, int neg)
 {
 	if (pars->arg->dot && pars->arg->pre > len)
 		return (pars->arg->pre - len);
@@ -36,9 +36,9 @@ int		number_zero(t_pars *pars, int len, int neg)
 	return (0);
 }
 
-int		number_space_id(t_pars *pars, int len, int neg)
+int	number_space_id(t_pars *pars, int len, int neg)
 {
-	int nb_element;
+	int	nb_element;
 
 	nb_element = number_zero(pars, len, neg) + len + neg;
 	nb_element += !neg && !pars->arg->plus && pars->arg->sp;
@@ -65,11 +65,11 @@ void	add_int(t_pars *pars, int nb)
 	}
 }
 
-int		conv_id(t_pars *pars, va_list ap)
+int	conv_id(t_pars *pars, va_list ap)
 {
 	int	nb_space;
 	int	nb;
-	int len;
+	int	len;
 
 	if (pars->arg->minus && pars->arg->zero)
 		pars->arg->zero = FALSE;

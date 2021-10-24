@@ -6,15 +6,15 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 09:12:06 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:53:04 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int				number_char(t_pars *pars, char *str)
+int	number_char(t_pars *pars, char *str)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(str);
 	if (pars->arg->dot == TRUE && pars->arg->pre < len)
@@ -22,14 +22,14 @@ int				number_char(t_pars *pars, char *str)
 	return (len);
 }
 
-int				number_space_s(t_pars *pars, int nb_char)
+int	number_space_s(t_pars *pars, int nb_char)
 {
 	if (pars->arg->fw > nb_char)
 		return (pars->arg->fw - nb_char);
 	return (0);
 }
 
-void			add_str(t_pars *pars, int nb_char, char *str)
+void	add_str(t_pars *pars, int nb_char, char *str)
 {
 	if (pars->pos_buf >= BUFFSIZE)
 		print_buffer(pars);
@@ -41,7 +41,7 @@ void			add_str(t_pars *pars, int nb_char, char *str)
 	}
 }
 
-int				conv_s(t_pars *pars, va_list ap)
+int	conv_s(t_pars *pars, va_list ap)
 {
 	int		nb_space;
 	int		nb_char;

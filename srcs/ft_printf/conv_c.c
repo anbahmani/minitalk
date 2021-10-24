@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 08:51:08 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:31:52 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	conv_c(t_pars *pars, va_list ap)
 {
-	unsigned char c;
+	unsigned char	c;
 
 	if (pars->arg->zero || pars->arg->plus || pars->arg->hashtag)
 		return (0);

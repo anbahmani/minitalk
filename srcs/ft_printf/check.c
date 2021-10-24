@@ -6,13 +6,13 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:12:19 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:31:12 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		is_conversion(char c)
+int	is_conversion(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i')
 		return (1);

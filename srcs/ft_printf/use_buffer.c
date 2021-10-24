@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 11:15:19 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:55:16 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_buffer(t_pars *pars)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < pars->pos_buf)
@@ -33,7 +33,7 @@ void	add_char(t_pars *pars, char c, int nb)
 	}
 }
 
-int		parse_str(const char *format, t_pars *pars)
+int	parse_str(const char *format, t_pars *pars)
 {
 	while (format[pars->pos] && format[pars->pos] != '%')
 	{

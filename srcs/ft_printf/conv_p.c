@@ -6,16 +6,16 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 09:50:38 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:52:09 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <stdio.h>
 
-int		digit_count_p(unsigned long nb)
+int	digit_count_p(unsigned long nb)
 {
-	int cpt;
+	int	cpt;
 
 	cpt = 0;
 	if (nb == 0)
@@ -39,9 +39,9 @@ void	add_p(t_pars *pars, unsigned long nb, char *base)
 	}
 }
 
-int		number_space_p(t_pars *pars, int len)
+int	number_space_p(t_pars *pars, int len)
 {
-	int nb_element;
+	int	nb_element;
 
 	nb_element = number_zero(pars, len, 0) + len + 2;
 	if (pars->arg->fw - nb_element > 0)
@@ -49,13 +49,13 @@ int		number_space_p(t_pars *pars, int len)
 	return (0);
 }
 
-int		conv_p(t_pars *pars, va_list ap)
+int	conv_p(t_pars *pars, va_list ap)
 {
 	int				nb_space;
 	unsigned long	nb;
 	int				len;
 
-	nb = (unsigned long)va_arg(ap, void*);
+	nb = (unsigned long)va_arg(ap, void *);
 	len = digit_count_p(nb) - (!nb && pars->arg->dot && !pars->arg->pre);
 	nb_space = number_space_p(pars, len);
 	if (!pars->arg->minus)

@@ -6,15 +6,15 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 11:07:21 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:53:49 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		digit_count_u(unsigned int nb, int base)
+int	digit_count_u(unsigned int nb, int base)
 {
-	int cpt;
+	int	cpt;
 
 	cpt = 0;
 	if (nb == 0)
@@ -38,9 +38,9 @@ void	add_uint(t_pars *pars, unsigned int nb)
 	}
 }
 
-int		number_space_u(t_pars *pars, int len, int neg)
+int	number_space_u(t_pars *pars, int len, int neg)
 {
-	int nb_element;
+	int	nb_element;
 
 	nb_element = number_zero(pars, len, neg) + len + neg;
 	if (pars->arg->fw - nb_element > 0)
@@ -48,7 +48,7 @@ int		number_space_u(t_pars *pars, int len, int neg)
 	return (0);
 }
 
-int		conv_u(t_pars *pars, va_list ap)
+int	conv_u(t_pars *pars, va_list ap)
 {
 	int				nb_space;
 	unsigned int	nb;

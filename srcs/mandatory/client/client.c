@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 22:15:43 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/14 23:10:59 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:23:26 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	send_byte(int byte, pid_t pid)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = 1 << 7;
 	while (tmp)

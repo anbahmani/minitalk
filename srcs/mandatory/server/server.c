@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 22:15:49 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/14 23:56:52 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:25:56 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_putpid(pid_t pid)
 static void	analyze_signal(int signal)
 {
 	static int				byte = 0;
-	static unsigned	int 	bits = 0;
+	static unsigned int		bits = 0;
 
 	if (signal == SIGUSR1)
 		byte = byte | 1;
@@ -41,9 +41,9 @@ static void	analyze_signal(int signal)
 		byte = byte << 1;
 }
 
-static void	wait_signal()
+static void	wait_signal(void)
 {
-	while(1)
+	while (1)
 	{
 		signal(SIGUSR1, analyze_signal);
 		signal(SIGUSR2, analyze_signal);
@@ -51,9 +51,9 @@ static void	wait_signal()
 	}
 }
 
-int main(void)
+int	main(void)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	pid = getpid();
 	ft_putpid(pid);

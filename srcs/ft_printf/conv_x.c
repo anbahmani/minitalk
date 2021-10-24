@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:20:13 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/15 16:40:45 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:32:23 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	add_xint(t_pars *pars, unsigned int nb, char *base)
 	}
 }
 
-int		conv_x(t_pars *pars, va_list ap)
+int	conv_x(t_pars *pars, va_list ap)
 {
 	int				nb_space;
 	unsigned int	nb;

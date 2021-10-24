@@ -6,11 +6,17 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:08 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/20 15:41:28 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:09:58 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minitalk_bonus.h"
+
+static void	get_acknowledge(int signal)
+{
+	if (signal == SIGUSR1)
+		ft_printf("Accusé de réception bien reçu !");
+}
 
 static void	send_byte(int byte, pid_t pid)
 {
@@ -32,6 +38,7 @@ static void	send_byte(int byte, pid_t pid)
 		tmp = tmp >> 1;
 		usleep(50);
 	}
+	signal(SIGUSR1, get_acknowledge);
 }
 
 static void	parse_msg(unsigned char *msg, pid_t pid)

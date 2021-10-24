@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 13:59:53 by abahmani          #+#    #+#             */
-/*   Updated: 2021/04/02 16:14:23 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 12:29:42 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef unsigned int	t_bool;
 #  define BUFFSIZE 1048
 # endif
 
-typedef	struct			s_arg
+typedef struct s_arg
 {
 	t_bool				zero;
 	t_bool				minus;
@@ -37,22 +37,22 @@ typedef	struct			s_arg
 	int					fw;
 	int					pre;
 	char				conv;
-}						t_arg;
+}	t_arg;
 
-typedef	struct			s_pars
+typedef struct s_pars
 {
 	char				buf[BUFFSIZE];
 	unsigned int		pos_buf;
 	unsigned int		pos;
 	int					count;
 	t_arg				*arg;
-}						t_pars;
+}	t_pars;
 
-typedef struct			s_pfct
+typedef struct s_pfct
 {
 	int					(*f[256])(t_pars *pars, va_list ap);
 	t_bool				call;
-}						t_pfct;
+}	t_pfct;
 
 int						ft_printf(const char *format, ...);
 int						ft_isdigit(int c);
@@ -60,7 +60,7 @@ int						ft_isprint(int c);
 size_t					ft_strlen(const char *s);
 int						parse_str(const char *format, t_pars *pars);
 int						process_arg(const char *format, t_pars *pars,
-						va_list ap, t_pfct *t);
+							va_list ap, t_pfct *t);
 void					check_flags(const char *format, t_pars *pars);
 void					init_arg(t_pars *pars);
 int						is_conversion(char c);
@@ -68,13 +68,13 @@ int						conv_c(t_pars *pars, va_list ap);
 void					init_pfct_tab(t_pfct *t);
 void					print_buffer(t_pars *pars);
 int						parse_desc(const char *format, t_pars *pars,
-						va_list ap);
+							va_list ap);
 t_bool					isflag(const char *format, int i);
 void					take_fw_pre(const char *format, int *num, t_pars *pars,
-						va_list ap);
+							va_list ap);
 void					add_char(t_pars *pars, char c, int nb);
 void					check_fw_pre(const char *format, t_pars *pars,
-						va_list ap);
+							va_list ap);
 int						conv_s(t_pars *pars, va_list ap);
 void					add_str(t_pars *pars, int nb_char, char *str);
 int						number_space_s(t_pars *pars, int nb_char);
