@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 22:09:21 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/14 23:56:34 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 17:17:53 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MINITALK_H
 
 # include "libft.h"
+# include "ft_printf.h"
 # include <unistd.h>
 # include <signal.h>
 

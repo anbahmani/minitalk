@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:08 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 12:09:58 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 19:51:31 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	get_acknowledge(int signal)
 
 static void	send_byte(int byte, pid_t pid)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = 1 << 7;
 	while (tmp)
@@ -51,7 +51,7 @@ static void	parse_msg(unsigned char *msg, pid_t pid)
 	send_byte(0, pid);
 }
 
-static void send_pid_to_serv(pid_t pid_serv)
+static void	send_pid_to_serv(pid_t pid_serv)
 {
 	char	*pid_str;
 

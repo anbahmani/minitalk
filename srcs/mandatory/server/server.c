@@ -6,20 +6,38 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 22:15:49 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 12:25:56 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 17:39:20 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minitalk.h"
 
-static void	ft_putpid(pid_t pid)
+static void	to_msg(char c)
 {
-	if (pid < 10)
-		ft_putchar_fd(pid + '0', 1);
+	char		*tmp;
+	char		tmp_char[2];
+	static char	*msg;
+
+	if (msg == NULL)
+	{
+		msg = malloc(sizeof(char));
+		if (!msg)
+			exit(1);
+		msg[0] = '\0';
+	}
+	if (!c)
+	{
+		ft_printf("%s", msg);
+		free(msg);
+		msg = NULL;
+	}
 	else
 	{
-		ft_putpid(pid / 10);
-		ft_putpid(pid % 10);
+		tmp_char[0] = c;
+		tmp_char[1] = '\0';
+		tmp = msg;
+		msg = ft_strjoin(msg, tmp_char);
+		free(tmp);
 	}
 }
 
@@ -33,7 +51,7 @@ static void	analyze_signal(int signal)
 	bits++;
 	if (bits > 7)
 	{
-		ft_putchar_fd((char) byte, 1);
+		to_msg((char) byte);
 		byte = 0;
 		bits = 0;
 	}
@@ -53,10 +71,6 @@ static void	wait_signal(void)
 
 int	main(void)
 {
-	pid_t	pid;
-
-	pid = getpid();
-	ft_putpid(pid);
-	ft_putchar_fd('\n', 1);
+	ft_printf("%d\n", getpid());
 	wait_signal();
 }

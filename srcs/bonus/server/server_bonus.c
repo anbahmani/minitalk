@@ -6,14 +6,15 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:11 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 12:07:20 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/24 19:53:57 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minitalk_bonus.h"
-extern int *g_client_pid;
 
-static void initialize_g_var()
+extern int	*g_client_pid;
+
+static void	initialize_g_var(void)
 {
 	g_client_pid = malloc(sizeof(int) * 2);
 	if (!g_client_pid)
@@ -22,10 +23,39 @@ static void initialize_g_var()
 	g_client_pid[1] = 0;
 }
 
+static void	to_msg(unsigned char c)
+{
+	char		*tmp;
+	char		tmp_char[2];
+	static char	*msg;
+
+	if (msg == NULL)
+	{
+		msg = malloc(sizeof(char));
+		if (!msg)
+			exit(1);
+		msg[0] = '\0';
+	}
+	if (!c)
+	{
+		ft_printf("%s", msg);
+		free(msg);
+		msg = NULL;
+	}
+	else
+	{
+		tmp_char[0] = c;
+		tmp_char[1] = '\0';
+		tmp = msg;
+		msg = ft_strjoin(msg, tmp_char);
+		free(tmp);
+	}
+}
+
 static void	analyze_signal(int signal)
 {
 	static unsigned char	byte = 0;
-	static unsigned	int 	bits = 0;
+	static unsigned int		bits = 0;
 
 	if (signal == SIGUSR1)
 		byte = byte | 1;
@@ -38,8 +68,7 @@ static void	analyze_signal(int signal)
 			free(g_client_pid);
 			g_client_pid = NULL;
 		}
-		else
-			write(1, &byte, 1);
+		to_msg(byte);
 		byte = 0;
 		bits = 0;
 	}
@@ -50,7 +79,7 @@ static void	analyze_signal(int signal)
 static void	analyze_client_pid(int signal)
 {
 	static unsigned char	byte = 0;
-	static unsigned	int 	bits = 0;
+	static unsigned int		bits = 0;
 
 	if (!g_client_pid)
 		initialize_g_var();
@@ -65,7 +94,7 @@ static void	analyze_client_pid(int signal)
 			g_client_pid[1] = 1;
 		}
 		else
-			g_client_pid[0]= (g_client_pid[0] + (byte - '0')) * 10;
+			g_client_pid[0] = (g_client_pid[0] + (byte - '0')) * 10;
 		byte = 0;
 		bits = 0;
 	}
@@ -73,8 +102,10 @@ static void	analyze_client_pid(int signal)
 		byte = byte << 1;
 }
 
-static void	wait_signal()
+int	main(void)
 {
+	ft_printf("%i\n", getpid());
+	initialize_g_var();
 	while (1)
 	{
 		if (!g_client_pid || !g_client_pid[1])
@@ -89,11 +120,4 @@ static void	wait_signal()
 		}
 		sleep(10);
 	}
-}
-
-int main(void)
-{
-	ft_printf("%i\n", getpid());
-	initialize_g_var();
-	wait_signal();
 }
