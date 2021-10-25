@@ -6,7 +6,7 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 14:58:39 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/24 20:40:58 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/25 15:25:49 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,13 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 
 RM		=	rm -f
-				
+
+all:		${NAME}
+
 ${NAME}:	${OBJS}
 			${MAKE} -C ../../libft
 			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a
 				
-all:		${NAME}
 
 .c.o:
 			${CC} ${CFLAGS} ${INCS} -c $< -o $@

@@ -6,11 +6,11 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/14 22:56:24 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/24 20:40:55 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/25 16:19:50 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=		server
+NAME	=		server_bonus
 
 SRCS	=		server_bonus.c
 
@@ -23,12 +23,13 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 
 RM		=	rm -f
-				
+
+all:		${NAME}
+
 ${NAME}:	${OBJS}
 			${MAKE} -C ../../libft
 			${CC} ${CFLAGS} ${INCS} $^ -o $@ ../../libft/libft.a
 				
-all:		${NAME}
 
 .c.o:
 			${CC} ${CFLAGS} ${INCS} -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:11 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 20:42:06 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/25 18:29:21 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	to_msg(unsigned char c)
 	}
 	if (!c)
 	{
-		printf("%s", msg);
+		ft_putstr_fd(msg, 1);
 		free(msg);
 		msg = NULL;
 	}
@@ -62,13 +62,13 @@ static void	analyze_signal(int signal)
 	bits++;
 	if (bits > 7)
 	{
+		to_msg(byte);
 		if (!byte)
 		{
 			kill(g_client_pid[0], SIGUSR1);
 			free(g_client_pid);
 			g_client_pid = NULL;
 		}
-		to_msg(byte);
 		byte = 0;
 		bits = 0;
 	}
@@ -120,4 +120,9 @@ int	main(void)
 		}
 		sleep(10);
 	}
+}
+__attribute__((destructor))
+void test()
+{
+	system("leaks push_swap");
 }

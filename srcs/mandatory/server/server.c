@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 22:15:49 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/24 20:42:25 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/25 18:24:47 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	to_msg(char c)
 {
 	char		*tmp;
 	char		tmp_char[2];
-	static char	*msg;
+	static char	*msg = NULL;
 
 	if (msg == NULL)
 	{
@@ -25,9 +25,9 @@ static void	to_msg(char c)
 			exit(1);
 		msg[0] = '\0';
 	}
-	if (!c)
+	if (c == 0)
 	{
-		printf("%s", msg);
+		ft_putstr_fd(msg, 1);
 		free(msg);
 		msg = NULL;
 	}

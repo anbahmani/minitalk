@@ -6,30 +6,39 @@
 #    By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/07 16:07:58 by abahmani          #+#    #+#              #
-#    Updated: 2021/10/23 18:24:31 by abahmani         ###   ########.fr        #
+#    Updated: 2021/10/25 16:21:30 by abahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=		minitalk
+NAME_CLIENT		=		client
+
+NAME_SERVER		=		server
+
+BONUS_CLIENT	=		client_bonus
+
+BONUS_SERVER	=		server_bonus
 
 RM			=		rm -f
 
-${NAME}:	FORCE
-			${RM} ${NAME}
+all:		${NAME_CLIENT} ${NAME_SERVER}
+
+${NAME_CLIENT}:	
 			${MAKE} -C ./srcs/mandatory/client
-			${MAKE} -C ./srcs/mandatory/server
 			mv ./srcs/mandatory/client/client .
+
+${NAME_SERVER}:	
+			${MAKE} -C ./srcs/mandatory/server
 			mv ./srcs/mandatory/server/server .
 
-bonus:		
-			${RM} client
-			${RM} server
-			${MAKE} -C ./srcs/bonus/client
-			${MAKE} -C ./srcs/bonus/server
-			mv ./srcs/bonus/client/client .
-			mv ./srcs/bonus/server/server .
+bonus:		${BONUS_CLIENT} ${BONUS_SERVER}
 
-all:		${NAME}
+${BONUS_CLIENT}:		
+			${MAKE} -C ./srcs/bonus/client
+			mv ./srcs/bonus/client/client_bonus .
+
+${BONUS_SERVER}:		
+			${MAKE} -C ./srcs/bonus/server
+			mv ./srcs/bonus/server/server_bonus .
 
 clean:		
 			${MAKE} -C ./srcs/mandatory/client clean
@@ -44,6 +53,8 @@ fclean:		clean
 			${MAKE} -C ./srcs/bonus/server fclean
 			${RM} client
 			${RM} server
+			${RM} client_bonus
+			${RM} server_bonus
 
 re:             fclean all
 
