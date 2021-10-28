@@ -6,7 +6,7 @@
 /*   By: abahmani <abahmani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 22:55:11 by abahmani          #+#    #+#             */
-/*   Updated: 2021/10/25 18:29:21 by abahmani         ###   ########.fr       */
+/*   Updated: 2021/10/28 20:06:23 by abahmani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,5 @@ int	main(void)
 		}
 		sleep(10);
 	}
-}
-__attribute__((destructor))
-void test()
-{
-	system("leaks push_swap");
+	return (0);
 }
